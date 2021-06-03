@@ -1,6 +1,6 @@
 function getRandomFromRange(min, max) {
   if (min < 0 || min === 0 || min > max)  {
-    console.log('Неверно задан диапазон, минимальное значение должно быть больше нуля и больше максимального');
+    return;
   } else {
     return Math.random() * (max - min) + min;
   }
@@ -13,9 +13,9 @@ getRandomFromRange(1, 10);
 
 function getRandomFromRangeFloat(min, max, round) {
   if (min < 0 || min > max)  {
-    console.log('Неверно задан диапазон, минимальное значение должно быть больше нуля и больше максимального');
+    return;
   } else {
-    let fix = Math.pow(10,round);
+    const fix = Math.pow(10,round);
     return Math.round((Math.random() * (max - min) + min)*fix)/fix;
 
   }
