@@ -2,7 +2,7 @@ function getRandomFromRange(min, max) {
   if (min < 0 || min === 0 || min > max)  {
     return NaN;
   }
-  return Math.random() * (max - min) + min;
+  return Math.round(Math.random() * (max - min) + min);
 
 }
 
