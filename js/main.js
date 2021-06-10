@@ -37,29 +37,29 @@ function createAds () {
     lat: getRandomFromRangeFloat(35.65000, 35.70000, 5),
     lng: getRandomFromRangeFloat(139.70000, 139.80000, 5),
   };
-return {
-  author: {
-    avatar: 'img/avatar-${getRandomFromRange(1, 10)}.svg',
-      },
-
-  offer: {
-    title: 'Заголовок объявления',
-    address: `${coordinates.lat}, ${coordinates.lng}`,
-    price: getRandomFromRange(1, 100000000),
-    type: getRandomArrayElement(TYPE),
-    room: getRandomFromRange(1,10),
-    guests: getRandomFromRange(1,100),
-    checkin: getRandomArrayElement(CHECKIN),
-    checkout:getRandomArrayElement(CHECKOUT),
-    features: getRandomArrayElement(FEATURES),
-    description: 'Описание помещения',
-    photos:getRandomArrayElement(PHOTOS),
+  return {
+    author: {
+      avatar: 'img/avatar-${getRandomFromRange(1, 10)}.svg',
     },
 
-  location: coordinates,
-    };
-  }
+    offer: {
+      title: 'Заголовок объявления',
+      address: `${coordinates.lat}, ${coordinates.lng}`,
+      price: getRandomFromRange(1, 100000000),
+      type: getRandomArrayElement(TYPE),
+      room: getRandomFromRange(1,10),
+      guests: getRandomFromRange(1,100),
+      checkin: getRandomArrayElement(CHECKIN),
+      checkout:getRandomArrayElement(CHECKOUT),
+      features: getRandomArrayElement(FEATURES),
+      description: 'Описание помещения',
+      photos:getRandomArrayElement(PHOTOS),
+    },
+
+    location: coordinates,
+  };
+}
 
 const similarAdsArray = new Array(adsNumber).fill(null).map(() => createAds());
 
-console.log(similarAdsArray);
+
