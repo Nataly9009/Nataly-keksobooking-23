@@ -74,8 +74,9 @@ function createAds () {
 
 //функция создания массива объявлений
 
-function similarAdsArray {
+function similarAdsArray () {
   new Array(adsNumber).fill(null).map(() => createAds());
 }
 
 
+similarAdsArray ();
