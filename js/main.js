@@ -4,6 +4,7 @@ const CHECKOUT = ['12:00', '13:00', '14:00'];
 const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
 const PHOTOS =['https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg', 'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg', 'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg'];
 const adsNumber = 10;
+const avatars = [];
 
 //функция генерации случайного положительного числа
 
@@ -30,6 +31,17 @@ function getRandomArrayElement(elements) {
   elements[getRandomFromRange(0, elements.length - 1)];
 }
 
+// Функция вырезания случайного елемента из массива и преведения его к строке
+const cutRandomArrayElement = (elements) => elements.splice(getRandomFromRange(0, elements.length - 1), 1).join('');
+
+// Функция получения части массива случайной длины от исходного массива
+const getArrayRandomSlice = (elements) => elements.slice(0, getRandomFromRange(1, elements.length));
+
+// Цикл генерации массива URL для аватаров
+for (let counter = 1; counter <= adsNumber; counter++) {
+  (counter < 10) ? avatars.push(`img/avatars/user0${counter}.png`) : avatars.push(`img/avatars/user${counter}.png`);
+}
+
 //функция создания объявления
 
 function createAds () {
@@ -39,7 +51,7 @@ function createAds () {
   };
   return {
     author: {
-      avatar: 'img/avatar-${getRandomFromRange(1, 10)}.svg',
+      avatar: cutRandomArrayElement(avatars),
     },
 
     offer: {
@@ -53,7 +65,7 @@ function createAds () {
       checkout:getRandomArrayElement(CHECKOUT),
       features: getRandomArrayElement(FEATURES),
       description: 'Описание помещения',
-      photos:getRandomArrayElement(PHOTOS),
+      photos:getArrayRandomSlice(PHOTOS),
     },
 
     location: coordinates,
@@ -62,4 +74,5 @@ function createAds () {
 
 const similarAdsArray = new Array(adsNumber).fill(null).map(() => createAds());
 
+return similarAdsArray;
 
