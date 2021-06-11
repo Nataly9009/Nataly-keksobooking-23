@@ -72,7 +72,10 @@ function createAds () {
   };
 }
 
-const similarAdsArray = new Array(adsNumber).fill(null).map(() => createAds());
+//функция создания массива объявлений
 
-return similarAdsArray;
+function similarAdsArray {
+  new Array(adsNumber).fill(null).map(() => createAds());
+}
+
 
