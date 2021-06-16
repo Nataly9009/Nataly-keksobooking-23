@@ -11,9 +11,6 @@ const FIRST_COORDINATE_LNG = 139.70000;
 const LAST_COORDINATE_LNG = 139.80000;
 const FLOAT_SIMBOLS_COORDINATES = 5;
 
-
-
-
 //функция генерации случайного положительного числа
 
 function getRandomFromRange(min, max) {
@@ -54,8 +51,8 @@ for (let counter = 1; counter <= adsNumber; counter++) {
 
 function createAds () {
   const COORDINATES = {
-  lat: getRandomFromRangeFloat(FIRST_COORDINATE_LAT, LAST_COORDINATE_LAT, FLOAT_SIMBOLS_COORDINATES),
-  lng: getRandomFromRangeFloat(FIRST_COORDINATE_LNG, LAST_COORDINATE_LNG, FLOAT_SIMBOLS_COORDINATES),
+    lat: getRandomFromRangeFloat(FIRST_COORDINATE_LAT, LAST_COORDINATE_LAT, FLOAT_SIMBOLS_COORDINATES),
+    lng: getRandomFromRangeFloat(FIRST_COORDINATE_LNG, LAST_COORDINATE_LNG, FLOAT_SIMBOLS_COORDINATES),
   };
 
   return {
