@@ -3,8 +3,12 @@ const CHECKIN = ['12:00', '13:00', '14:00'];
 const CHECKOUT = ['12:00', '13:00', '14:00'];
 const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
 const PHOTOS =['https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg', 'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg', 'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg'];
-const adsNumber = 10;
-const avatars = [];
+const ADS_NUMBER = 10;
+const AVATARS = [...Array(10)].map((item, index) => index);
+const COORDINATES = {
+    lat: getRandomFromRangeFloat(35.65000, 35.70000, 5),
+    lng: getRandomFromRangeFloat(139.70000, 139.80000, 5),
+  };
 
 //функция генерации случайного положительного числа
 
@@ -37,26 +41,23 @@ const cutRandomArrayElement = (elements) => elements.splice(getRandomFromRange(0
 // Функция получения части массива случайной длины от исходного массива
 const getArrayRandomSlice = (elements) => elements.slice(0, getRandomFromRange(1, elements.length));
 
-// Цикл генерации массива URL для аватаров
+/* Цикл генерации массива URL для аватаров
 for (let counter = 1; counter <= adsNumber; counter++) {
   (counter < 10) ? avatars.push(`img/avatars/user0${counter}.png`) : avatars.push(`img/avatars/user${counter}.png`);
-}
+}*/
 
 //функция создания объявления
 
 function createAds () {
-  const coordinates = {
-    lat: getRandomFromRangeFloat(35.65000, 35.70000, 5),
-    lng: getRandomFromRangeFloat(139.70000, 139.80000, 5),
-  };
+
   return {
     author: {
-      avatar: cutRandomArrayElement(avatars),
+      avatar: cutRandomArrayElement(AVATARS),
     },
 
     offer: {
       title: 'Заголовок объявления',
-      address: `${coordinates.lat}, ${coordinates.lng}`,
+      address: `${COORDINATES.lat}, ${COORDINATES.lng}`,
       price: getRandomFromRange(1, 100000000),
       type: getRandomArrayElement(TYPE),
       room: getRandomFromRange(1,10),
@@ -68,14 +69,14 @@ function createAds () {
       photos:getArrayRandomSlice(PHOTOS),
     },
 
-    location: coordinates,
+    location: COORDINATES,
   };
 }
 
 //функция создания массива объявлений
 
 function similarAdsArray () {
-  new Array(adsNumber).fill(null).map(() => createAds());
+  new Array(ADS_NUMBER).fill(null).map(() => createAds());
 }
 
 
