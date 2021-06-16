@@ -5,10 +5,14 @@ const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'condit
 const PHOTOS =['https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg', 'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg', 'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg'];
 const ADS_NUMBER = 10;
 const AVATARS = [...Array(10)].map((item, index) => index);
-const COORDINATES = {
-    lat: getRandomFromRangeFloat(35.65000, 35.70000, 5),
-    lng: getRandomFromRangeFloat(139.70000, 139.80000, 5),
-  };
+const FIRST_COORDINATE_LAT = 35.65000;
+const LAST_COORDINATE_LAT = 35.70000;
+const FIRST_COORDINATE_LNG = 139.70000;
+const LAST_COORDINATE_LNG = 139.80000;
+const FLOAT_SIMBOLS_COORDINATES = 5;
+
+
+
 
 //функция генерации случайного положительного числа
 
@@ -49,6 +53,10 @@ for (let counter = 1; counter <= adsNumber; counter++) {
 //функция создания объявления
 
 function createAds () {
+  const COORDINATES = {
+  lat: getRandomFromRangeFloat(FIRST_COORDINATE_LAT, LAST_COORDINATE_LAT, FLOAT_SIMBOLS_COORDINATES),
+  lng: getRandomFromRangeFloat(FIRST_COORDINATE_LNG, LAST_COORDINATE_LNG, FLOAT_SIMBOLS_COORDINATES),
+  };
 
   return {
     author: {
