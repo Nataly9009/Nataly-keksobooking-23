@@ -7,6 +7,7 @@ function getRandomFromRange(min, max) {
   }
   return Math.round(Math.random() * (max - min) + min);
 }
+getRandomFromRange();
 
 //функция генерации случайного положительного числа с плавающей точкой
 
@@ -17,4 +18,6 @@ function getRandomFromRangeFloat(min, max, round) {
   const fix = Math.pow(10,round);
   return Math.round((Math.random() * (max - min) + min)*fix)/fix;
 }
+getRandomFromRangeFloat();
 
+export {getRandomFromRange, getRandomFromRangeFloat};

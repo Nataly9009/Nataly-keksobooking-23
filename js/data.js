@@ -1,4 +1,4 @@
-import './util.js';
+import {getRandomFromRange, getRandomFromRangeFloat} from './util.js';
 
 const TYPE = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 const CHECKIN = ['12:00', '13:00', '14:00'];
@@ -11,7 +11,8 @@ const FIRST_COORDINATE_LAT = 35.65000;
 const LAST_COORDINATE_LAT = 35.70000;
 const FIRST_COORDINATE_LNG = 139.70000;
 const LAST_COORDINATE_LNG = 139.80000;
-const FLOAT_SIMBOLS_COORDINATES = 5;key: "value",
+const FLOAT_SIMBOLS_COORDINATES = 5;
+
 // Функция получения случайного елемента из массива
 
 function getRandomArrayElement(elements) {
