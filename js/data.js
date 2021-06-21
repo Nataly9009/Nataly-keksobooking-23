@@ -12,6 +12,11 @@ const LAST_COORDINATE_LAT = 35.70000;
 const FIRST_COORDINATE_LNG = 139.70000;
 const LAST_COORDINATE_LNG = 139.80000;
 const FLOAT_SIMBOLS_COORDINATES = 5;
+const MIN_VALUE = 1;
+const MAX_PRICE = 100000000;
+const MAX_ROOM = 10;
+const MAX_GUESTS = 100;
+
 
 // Функция получения случайного елемента из массива
 
@@ -43,10 +48,10 @@ function createAds () {
     offer: {
       title: 'Заголовок объявления',
       address: `${COORDINATES.lat}, ${COORDINATES.lng}`,
-      price: getRandomFromRange(1, 100000000),
+      price: getRandomFromRange(MIN_VALUE, MAX_PRICE),
       type: getRandomArrayElement(TYPE),
-      room: getRandomFromRange(1,10),
-      guests: getRandomFromRange(1,100),
+      room: getRandomFromRange(MIN_VALUE,MAX_ROOM),
+      guests: getRandomFromRange(MIN_VALUE,MAX_GUESTS),
       checkin: getRandomArrayElement(CHECKIN),
       checkout:getRandomArrayElement(CHECKOUT),
       features: getRandomArrayElement(FEATURES),
