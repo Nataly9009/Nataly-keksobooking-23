@@ -12,16 +12,18 @@ const LAST_COORDINATE_LAT = 35.70000;
 const FIRST_COORDINATE_LNG = 139.70000;
 const LAST_COORDINATE_LNG = 139.80000;
 const FLOAT_SIMBOLS_COORDINATES = 5;
+const MIN_VALUE = 1;
+const MAX_PRICE = 500000;
+const MAX_ROOM = 10;
+const MAX_GUESTS = 100;
 
 // Функция получения случайного елемента из массива
 
-function getRandomArrayElement(elements) {
-  elements[getRandomFromRange(0, elements.length - 1)];
-}
+const getRandomArrayElement = (elements) => elements[Math.floor(0, Math.random()*elements.length)];
 
 // Функция вырезания случайного елемента из массива и преведения его к строке
 
-const cutRandomArrayElement = (elements) => elements.splice(getRandomFromRange(0, elements.length - 1), 1).join('');
+const cutRandomArrayElement = (elements) => elements.splice(getRandomFromRange(1, elements.length), 1).join('');
 
 // Функция получения части массива случайной длины от исходного массива
 
@@ -37,16 +39,16 @@ function createAds () {
 
   return {
     author: {
-      avatar: cutRandomArrayElement(AVATARS),
+      avatar: 'img/avatars/user0' + cutRandomArrayElement(AVATARS) + '.png',
     },
 
     offer: {
-      title: 'Заголовок объявления',
+      title: 'Отель',
       address: `${COORDINATES.lat}, ${COORDINATES.lng}`,
-      price: getRandomFromRange(1, 100000000),
+      price: getRandomFromRange(MIN_VALUE, MAX_PRICE),
       type: getRandomArrayElement(TYPE),
-      room: getRandomFromRange(1,10),
-      guests: getRandomFromRange(1,100),
+      room: getRandomFromRange(MIN_VALUE,MAX_ROOM),
+      guests: getRandomFromRange(MIN_VALUE,MAX_GUESTS),
       checkin: getRandomArrayElement(CHECKIN),
       checkout:getRandomArrayElement(CHECKOUT),
       features: getRandomArrayElement(FEATURES),
@@ -58,11 +60,13 @@ function createAds () {
   };
 }
 
+
+
 //функция создания массива объявлений
 
-function similarAdsArray () {
-  new Array(ADS_NUMBER).fill(null).map(() => createAds());
-}
+const similarAdsArray = () =>  new Array(ADS_NUMBER).fill(null).map(() => createAds());
 
+similarAdsArray();
 
-similarAdsArray ();
+export {similarAdsArray};
+
