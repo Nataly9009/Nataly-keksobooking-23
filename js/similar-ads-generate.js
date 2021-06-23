@@ -27,7 +27,7 @@ similarAds.forEach((ads) => {
 
   const createPhotosFragment = function (adsPhoto) {
     const photosFragment = document.createDocumentFragment();
-    adsPhoto.offer.photos.forEach(function (it) {
+    adsPhoto.offer.photos.forEach((it) => {
       const popupPhotoItem = popupPhoto.cloneNode(true);
       popupPhotoItem.src = it;
       photosFragment.appendChild(popupPhotoItem);
