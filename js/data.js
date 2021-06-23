@@ -39,7 +39,7 @@ function createAds () {
 
   return {
     author: {
-      avatar: 'img/avatars/user0' + cutRandomArrayElement(AVATARS) + '.png',
+      avatar: `./img/avatars/user0${ cutRandomArrayElement(AVATARS) }.png`,
     },
 
     offer: {
@@ -59,8 +59,6 @@ function createAds () {
     location: COORDINATES,
   };
 }
-
-
 
 //функция создания массива объявлений
 
