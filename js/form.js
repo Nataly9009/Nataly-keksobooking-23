@@ -3,7 +3,7 @@ const selectRoomNumber = document.querySelector('#room_number');
 const capasitySelectGroop = document.querySelector('#capacity');
 const capacitySelectItem = capasitySelectGroop.querySelectorAll('option');
 const minPrice = {
-  bungalo: 0,
+  bungalo: 1,
   flat: 1000,
   hotel: 3000,
   house: 5000,
