@@ -35,6 +35,7 @@ const addDisabled = function () {
 
 addDisabled();
 */
+
 const onCapacityPlacesChange = function () {
   if (selectRoomNumber.value === '1') {
     capacitySelectItem[0].setAttribute('disabled', true);
