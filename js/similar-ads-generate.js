@@ -23,6 +23,16 @@ const createPhotosFragment = function (photoSrc) {
   return photosFragment;
 };
 
+const createFeatureFragment = function (ads) {
+  const featureFragment = document.createDocumentFragment();
+  [ads.offer.features].forEach((it) => {
+    const featureItem = document.createElement('li');
+    featureItem.className = `popup__feature popup__feature--' + ${it}`;
+    featureFragment.appendChild(featureItem);
+  });
+  return featureFragment;
+};
+
 similarAds.forEach((ads) => {
   const adsElement = similarAdsTemplate.cloneNode(true);
   adsElement.querySelector('.popup__title').textContent = ads.offer.title;
@@ -31,7 +41,8 @@ similarAds.forEach((ads) => {
   adsElement.querySelector('.popup__type').textContent = HouseType[ads.offer.type];
   adsElement.querySelector('.popup__text--capacity').textContent = `${ads.offer.room}  комнаты для  ${ads.offer.guests} гостей`;
   adsElement.querySelector('.popup__text--time').textContent = `Заезд после ${ads.offer.checkin}  , выезд до  ${ads.offer.checkout}`;
-  adsElement.querySelector('.popup__features').textContent = ads.offer.features;
+  adsElement.querySelector('.popup__features').innerHTML = '';
+  adsElement.querySelector('.popup__features').appendChild(createFeatureFragment(ads));
   adsElement.querySelector('.popup__description').textContent = ads.offer.description;
   adsElement.querySelector('.popup__photos').removeChild(adsElement.querySelector('.popup__photo'));
   adsElement.querySelector('.popup__photos').appendChild(createPhotosFragment(ads));
