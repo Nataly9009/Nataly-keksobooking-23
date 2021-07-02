@@ -81,6 +81,7 @@ timesOut.addEventListener('change', (evt) => {
   timesIn.value = evt.target.value;
 });
 
+
 /*
 // Удаляет disabled у всех fieldset в форме ad-form
 const removeDisabled = function () {
