@@ -27,7 +27,6 @@ const enableValidation = () => {
     priceInput.min = currentTypeMinPrice;
   });
 
-
   priceInput.addEventListener('input', () => {
     const currentTypeMinPrice = Price.MIN[typeInput.value];
 
@@ -68,7 +67,6 @@ const enableValidation = () => {
 };
 
 enableValidation();
-
 
 const timesIn = document.querySelector('#timein');
 const timesOut = document.querySelector('#timeout');
